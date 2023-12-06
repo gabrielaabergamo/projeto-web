@@ -10,11 +10,21 @@
     <body>
         <header>
             <nav>
-                <a href="/">Home</a>
-                <a href="/">Rotas</a>
-                <a href="/">Horários</a>
-                <a href="/">Informações</a>
-                <a href="/">Sobre nós</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                        <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
+                        <div id="submenu" class="submenu-closed submenu">
+                            <ul>
+                                <li><a href="/">Itinerários</a></li>
+                                <li><a href="/">Cadastro de itinerários</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/">Horários</a></li>
+                    <li><a href="/">Informações</a></li>
+                    <li><a href="/">Sobre nós</a></li>
+                </ul>
             </nav>
         </header>
 
@@ -87,5 +97,20 @@
             </section>
             
         </section>
+
+        <script>
+            var abrirSubmenu = 1;
+            function acaoSubmenu() {
+                var element = document.getElementById("submenu");
+                if(abrirSubmenu == 1){
+                    element.classList.remove("submenu-closed");
+                    element.classList.add("submenu-open");
+                } else {
+                    element.classList.remove("submenu-open");
+                    element.classList.add("submenu-closed");
+                }
+                abrirSubmenu = !abrirSubmenu
+            }
+        </script>
     </body>
 </html>
