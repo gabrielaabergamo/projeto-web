@@ -119,7 +119,7 @@ nav a:hover, button:hover{
     justify-content: space-between;
     width: 300px;
     gap: 30px;
-    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
 .input{
@@ -135,8 +135,16 @@ nav a:hover, button:hover{
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
+    margin-top: 25px;
 }
 
 .botao:hover{
     cursor: pointer;
+}
+
+.erro{
+    font-family: 'Roboto';
+    color: red;
+    width: 300px;
+    text-align: right;
 }
