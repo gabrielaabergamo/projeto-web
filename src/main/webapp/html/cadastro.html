@@ -55,55 +55,107 @@
                         <label for="ponto2" class="label">Ponto 2:</label>
                         <input type="text" id="ponto2" class="input" required minlength="5">
                     </div>
+                    <div id="erro-ponto2" class="erro"></div>
                     <div class="input-wrapper">
                         <label for="ponto3" class="label">Ponto 3:</label>
                         <input type="text" id="ponto3" class="input" required minlength="5">
                     </div>
+                    <div id="erro-ponto3" class="erro"></div>
                     <div class="input-wrapper">
                         <label for="ponto4" class="label">Ponto 4:</label>
                         <input type="text" id="ponto4" class="input" required minlength="5">
                     </div>
+                    <div id="erro-ponto4" class="erro"></div>
                     <div class="input-wrapper">
                         <label for="ponto5" class="label">Ponto 5:</label>
                         <input type="text" id="ponto5" class="input" required minlength="5">
                     </div>
+                    <div id="erro-ponto5" class="erro"></div>
                     <div class="input-wrapper">
                         <label for="ponto6" class="label">Ponto 6:</label>
                         <input type="text" id="ponto6" class="input" required minlength="5">
                     </div>
-                        <input type="submit" class="botao" value="Salvar alterações">
+                    <div id="erro-ponto6" class="erro"></div>
+                    <input type="submit" class="botao" value="Salvar alterações">
                 </form>
             </div>
         </section>
 
         <script>
             $(document).ready(function() {
-                let ponto1 = document.getElementById('ponto1'),
-                erro = document.getElementById('erro-ponto1')
+                let erroPonto1 = document.getElementById('erro-ponto1'),
+                erroPonto2 = document.getElementById('erro-ponto2'),
+                erroPonto3 = document.getElementById('erro-ponto3'),
+                erroPonto4 = document.getElementById('erro-ponto4'),
+                erroPonto5 = document.getElementById('erro-ponto5'),
+                erroPonto6 = document.getElementById('erro-ponto6')
 
-                $('#ponto1').keyup(function() {
+                let letter_only = /[^a-z]/;
+                let textLength = 5;
+
+                const elementsWrapper = [
+                    {
+                        input: 'ponto1',
+                        error: erroPonto1
+                    },
+                    {
+                        input: 'ponto2',
+                        error: erroPonto2
+                    },
+                    {
+                        input: 'ponto3',
+                        error: erroPonto3
+                    },
+                    {
+                        input: 'ponto4',
+                        error: erroPonto4
+                    },
+                    {
+                        input: 'ponto5',
+                        error: erroPonto5
+                    },
+                    {
+                        input: 'ponto6',
+                        error: erroPonto6
+                    }
+                ]
+
+                elementsWrapper.forEach((el) => {
+                    $('#' + el.input).keyup(function() {
                     let element = $(this);
-                    let letter_only = /[^a-z]/;
-                    let textLength = 5;
                     let replaced;
 
-                    if(letter_only.test(element.val())){
-                        $(erro).fadeIn('slow', function(){
-                            $(this).html('O input aceita apenas letras.')
-                        })
-                    } else if(element.val().length < textLength ){
-                        $(erro).fadeIn('slow', function(){
-                            $(this).html('O input requer pelo menos 5 letras.')
-                        })
-                    }
+                        if(letter_only.test(element.val())){
+                            letterOnlyErrMsg(el.error)
+                        } else if(element.val().length < textLength ){
+                            textLengthErrMsg(el.error)
+                        }
+
                     replaced = element.val().replace(letter_only, '')
                     element.val(replaced)
-                })
-                $('#ponto1').focusout(function() {
-                    $(erro).fadeOut(1000, function() {
-                        $(this).html('')
+                    })
+                    $('#' + el.input).focusout(function() {
+                        removeErrMsg(el.error)
                     })
                 })
+                
+                const letterOnlyErrMsg = (erroID) => {
+                    $(erroID).fadeIn('slow', function(){
+                        $(this).html('O input aceita apenas letras.')
+                    })
+                }
+
+                const textLengthErrMsg = (erroID) => {
+                    $(erroID).fadeIn('slow', function(){
+                        $(this).html('O input requer pelo menos 5 letras.')
+                    })
+                }
+
+                const removeErrMsg = (erroID) => {
+                    $(erroID).fadeOut(1000, function() {
+                        $(this).html('')
+                    })
+                }
             })
 
 
