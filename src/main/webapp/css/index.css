@@ -25,6 +25,10 @@ nav ul li{
     font-size: 15px;
 }
 
+nav ul li:first-child{
+   text-decoration: underline;
+}
+
 nav ul li:not(:last-child){
     margin-right: 70px;
 }
