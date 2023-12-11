@@ -6,18 +6,19 @@
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="projeto-web/../css/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
             <nav class="teste">
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/projeto-web">Home</a></li>
                     <li>
                         <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
                         <div id="submenu" class="submenu-closed submenu">
                             <ul>
-                                <li><a href="/">Itinerários</a></li>
-                                <li><a href="/cadastro">Cadastro de itinerários</a></li>
+                                <li><a href="/projeto-web/html/itinerario.html">Itinerários</a></li>
+                                <li><a href="/projeto-web/html/cadastro.html">Cadastro de itinerários</a></li>
                             </ul>
                         </div>
                     </li>
@@ -31,86 +32,11 @@
         <section class="content">
             <h1>Linhas de ônibus mais usadas</h1>
             <section class="card-wrapper">
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
+               
             </section>
             
         </section>
 
-        <script>
-            var abrirSubmenu = 1;
-            function acaoSubmenu() {
-                var element = document.getElementById("submenu");
-                if(abrirSubmenu == 1){
-                    element.classList.remove("submenu-closed");
-                    element.classList.add("submenu-open");
-                } else {
-                    element.classList.remove("submenu-open");
-                    element.classList.add("submenu-closed");
-                }
-                abrirSubmenu = !abrirSubmenu
-            }
-        </script>
+        <script src="projeto-web/../controllers/index.js"></script>
     </body>
 </html>

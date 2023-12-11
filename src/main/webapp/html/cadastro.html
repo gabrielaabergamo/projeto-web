@@ -10,9 +10,9 @@
     </head>
     <body>
         <header>
-            <nav class="teste">
+            <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/projeto-web">Home</a></li>
                     <li>
                         <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
                         <div id="submenu" class="submenu-closed submenu">
@@ -30,6 +30,9 @@
         </header>
 
         <section class="content">
+            <div id="popup">
+                <p id="popupMessage"></p>
+            </div>
             <h1>Cadastro de itinerário</h1>
 
             <div class="content-wrapper">
@@ -37,88 +40,17 @@
                 <div class="select-wrapper">
                     <p class="label">Linha:</p>
                     <select name="linhas" id="linhas">
-                        <option value="linha1">Linha 1</option>
-                        <option value="linha2">Linha 2</option>
-                        <option value="linha3">Linha 3</option>
-                        <option value="linha4">Linha 4</option>
                     </select>
                 </div>
                 
                 <h2>Itinerário:</h2>
                 <form id="form">
-                    <div class="input-wrapper">
-                        <label for="ponto1" class="label">Ponto 1:</label>
-                        <input type="text" id="ponto1" class="input" required minlength="5">
-                    </div>
-                    <div id="erro-ponto1" class="erro"></div>
-                    <div class="input-wrapper">
-                        <label for="ponto2" class="label">Ponto 2:</label>
-                        <input type="text" id="ponto2" class="input" required minlength="5">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="ponto3" class="label">Ponto 3:</label>
-                        <input type="text" id="ponto3" class="input" required minlength="5">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="ponto4" class="label">Ponto 4:</label>
-                        <input type="text" id="ponto4" class="input" required minlength="5">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="ponto5" class="label">Ponto 5:</label>
-                        <input type="text" id="ponto5" class="input" required minlength="5">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="ponto6" class="label">Ponto 6:</label>
-                        <input type="text" id="ponto6" class="input" required minlength="5">
-                    </div>
-                        <input type="submit" class="botao" value="Salvar alterações">
+                    <button type="button" id="add-button" class="add-button botao" onclick="createInputElement('', 0)">+</button>
+                    <input type="submit" id="submit-button" class="botao" value="Salvar alterações">
                 </form>
             </div>
         </section>
 
-        <script>
-            $(document).ready(function() {
-                let ponto1 = document.getElementById('ponto1'),
-                erro = document.getElementById('erro-ponto1')
-
-                $('#ponto1').keyup(function() {
-                    let element = $(this);
-                    let letter_only = /[^a-z]/;
-                    let textLength = 5;
-                    let replaced;
-
-                    if(letter_only.test(element.val())){
-                        $(erro).fadeIn('slow', function(){
-                            $(this).html('O input aceita apenas letras.')
-                        })
-                    } else if(element.val().length < textLength ){
-                        $(erro).fadeIn('slow', function(){
-                            $(this).html('O input requer pelo menos 5 letras.')
-                        })
-                    }
-                    replaced = element.val().replace(letter_only, '')
-                    element.val(replaced)
-                })
-                $('#ponto1').focusout(function() {
-                    $(erro).fadeOut(1000, function() {
-                        $(this).html('')
-                    })
-                })
-            })
-
-
-            var abrirSubmenu = 1;
-                function acaoSubmenu() {
-                    var element = document.getElementById("submenu");
-                    if(abrirSubmenu == 1){
-                        element.classList.remove("submenu-closed");
-                        element.classList.add("submenu-open");
-                    } else {
-                        element.classList.remove("submenu-open");
-                        element.classList.add("submenu-closed");
-                    }
-                    abrirSubmenu = !abrirSubmenu
-                }
-        </script>
+        <script src="../controllers/cadastro.js"></script>
     </body>
 </html>

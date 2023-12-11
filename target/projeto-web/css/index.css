@@ -25,6 +25,10 @@ nav ul li{
     font-size: 15px;
 }
 
+nav ul li:first-child{
+   text-decoration: underline;
+}
+
 nav ul li:not(:last-child){
     margin-right: 70px;
 }
@@ -93,6 +97,13 @@ nav a:hover, button:hover{
     border-radius: 20px;
     max-width: 350px;
     padding: 20px;
+    transition: 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    box-shadow: 10px 10px 60px #d0d0d0, -10px -10px 60px #ffffff;
 }
 
 .card h2 {

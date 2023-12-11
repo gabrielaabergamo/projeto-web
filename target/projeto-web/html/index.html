@@ -6,19 +6,19 @@
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="projeto-web/../css/index.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
             <nav class="teste">
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/projeto-web">Home</a></li>
                     <li>
                         <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
                         <div id="submenu" class="submenu-closed submenu">
                             <ul>
-                                <li><a href="/">Itinerários</a></li>
-                                <li><a href="/cadastro">Cadastro de itinerários</a></li>
+                                <li><a href="/projeto-web/html/itinerario.html">Itinerários</a></li>
+                                <li><a href="/projeto-web/html/cadastro.html">Cadastro de itinerários</a></li>
                             </ul>
                         </div>
                     </li>
@@ -32,58 +32,11 @@
         <section class="content">
             <h1>Linhas de ônibus mais usadas</h1>
             <section class="card-wrapper">
-                
+               
             </section>
             
         </section>
 
-        <script>
-            var abrirSubmenu = 1;
-            function acaoSubmenu() {
-                var element = document.getElementById("submenu");
-                if(abrirSubmenu == 1){
-                    element.classList.remove("submenu-closed");
-                    element.classList.add("submenu-open");
-                } else {
-                    element.classList.remove("submenu-open");
-                    element.classList.add("submenu-closed");
-                }
-                abrirSubmenu = !abrirSubmenu
-            }
-          
-
-  $(document).ready(function() {
-    // Faz uma requisição AJAX para a URL /linhas
-    $.ajax({
-      url: "/projeto-web/linhas",
-      method: "GET",
-      dataType: "json",
-      success: function(data) {
-        // Variável para armazenar o HTML dos cards
-        var cardsHTML = "";
-
-        // Itera sobre cada objeto na lista e cria um card para cada um
-        data.forEach(function(onibus) {
-
-          var cardHTML = '<div class="card">';
-          cardHTML += '<h2>Linha ' + onibus.linha + '</h2>';
-          cardHTML += '<h2> Terminal' + onibus.terminal + '</h2>';
-          cardHTML += '<p>Modelo do ônibus: ' + onibus.modelo + '</p>';
-          cardHTML += '<p>Ônibus possui: ' + onibus.caracteristicas + '</p>';
-          cardHTML += '</div>';
-
-          cardsHTML += cardHTML;
-        });
-
-        // Adiciona os cards ao elemento com o ID "cards-container"
-        $('.card-wrapper').html(cardsHTML);
-      },
-      error: function(error) {
-        console.error("Erro na requisição AJAX:", error);
-      }
-    });
-  });
-
-        </script>
+        <script src="projeto-web/../controllers/index.js"></script>
     </body>
 </html>
