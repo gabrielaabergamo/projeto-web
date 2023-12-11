@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.List;
 import java.util.Objects;
 
 public class OnibusBean {
@@ -15,13 +16,19 @@ public class OnibusBean {
 
     private String caracteristicas;
 
+    private String regiao;
+    
+    private List<String> pontos; 
 
-    public OnibusBean(Long id, String modelo, String linha, String terminal, String caracteristicas){
+
+    public OnibusBean(Long id, String modelo, String linha, String terminal, String caracteristicas, String regiao,List<String> pontos){
         this.id = id;
         this.modelo = modelo;
         this.linha = linha;
         this.terminal = terminal;
         this.caracteristicas = caracteristicas;
+        this.regiao = regiao;
+        this.pontos = pontos;
     }
 
      public Long getId() {
@@ -64,6 +71,22 @@ public class OnibusBean {
         this.caracteristicas = caracteristicas;
     }
 
+    public String getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(String regiao) {
+        this.regiao = regiao;
+    }
+
+    public List<String> getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(List<String> pontos) {
+        this.pontos = pontos;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -91,6 +114,8 @@ public class OnibusBean {
                ", linha='" + linha + '\'' +
                ", terminal='" + terminal + '\'' +
                ", caracteristicas='" + caracteristicas + '\'' +
+               ", regiao='" + regiao + '\'' +
+               ", pontos=" + pontos +
                '}';
     }
 
