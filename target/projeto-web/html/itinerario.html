@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="../css/itinerario.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                        <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
+                        <div id="submenu" class="submenu-closed submenu">
+                            <ul>
+                                <li><a href="/">Itinerários</a></li>
+                                <li><a href="/">Cadastro de itinerários</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/">Horários</a></li>
+                    <li><a href="/">Informações</a></li>
+                    <li><a href="/">Sobre nós</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="content">
+            <h1>Itinerários</h1>
+
+            <div class="content-wrapper">
+
+                <div class="select-wrapper">
+                    <p class="label">Região:</p>
+                    <select name="regioes" id="regioes">
+                        <option value="regiao1">Região 1</option>
+                        <option value="regiao2">Região 2</option>
+                        <option value="regiao3">Região 3</option>
+                        <option value="regiao4">Região 4</option>
+                    </select>
+                </div>
+
+                <div class="select-wrapper">
+                    <p class="label">Ônibus:</p>
+                    <select name="onibus" id="onibus">
+                        <option value="onibus1">Ônibus 1</option>
+                        <option value="onibus2">Ônibus 2</option>
+                        <option value="onibus3">Ônibus 3</option>
+                        <option value="onibus4">Ônibus 4</option>
+                    </select>
+                </div>
+                
+                <ul class="lista-onibus">
+                   <li>Ponto 1</li> 
+                   <li>Ponto 2</li> 
+                   <li>Ponto 3</li> 
+                   <li>Ponto 4</li> 
+                </ul>
+
+            </div>
+        </section>
+
+        <script>
+            var abrirSubmenu = 1;
+                function acaoSubmenu() {
+                    var element = document.getElementById("submenu");
+                    if(abrirSubmenu == 1){
+                        element.classList.remove("submenu-closed");
+                        element.classList.add("submenu-open");
+                    } else {
+                        element.classList.remove("submenu-open");
+                        element.classList.add("submenu-closed");
+                    }
+                    abrirSubmenu = !abrirSubmenu
+                }
+        </script>
+    </body>
+</html>

@@ -12,13 +12,13 @@
         <header>
             <nav class="teste">
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/projeto-web">Home</a></li>
                     <li>
                         <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
                         <div id="submenu" class="submenu-closed submenu">
                             <ul>
                                 <li><a href="/">Itinerários</a></li>
-                                <li><a href="/cadastro">Cadastro de itinerários</a></li>
+                                <li><a href="/projeto-web/html/cadastro">Cadastro de itinerários</a></li>
                             </ul>
                         </div>
                     </li>
@@ -37,45 +37,6 @@
             
         </section>
 
-        <script>
-            $(document).ready(function() {
-                $.ajax({
-                    url: "/projeto-web/linhas",
-                    method: "GET",
-                    dataType: "json",
-                    success: function(data) {
-                        // Variável para armazenar o HTML dos cards
-                        var cardsHTML = ''
-
-                        // Itera sobre cada objeto na lista e cria um card para cada um
-                        data.forEach(function(onibus) {
-                        cardsHTML += `
-                        <div class="card">
-                            <h2>${onibus.linha}</h2>
-                            <h3>${onibus.terminal}</h3>
-                            <p>Modelo do ônibus: ${onibus.modelo}</p>
-                            <p>Ônibus possui: ${onibus.caracteristicas}</p>
-                        </div>
-                        `;
-                        })
-
-                        $('.card-wrapper').html(cardsHTML)
-                    }
-                })
-            })
-
-            var abrirSubmenu = 1;
-            function acaoSubmenu() {
-                var element = document.getElementById("submenu");
-                if(abrirSubmenu == 1){
-                    element.classList.remove("submenu-closed");
-                    element.classList.add("submenu-open");
-                } else {
-                    element.classList.remove("submenu-open");
-                    element.classList.add("submenu-closed");
-                }
-                abrirSubmenu = !abrirSubmenu
-            }
-        </script>
+        <script src="projeto-web/../controllers/index.js"></script>
     </body>
 </html>

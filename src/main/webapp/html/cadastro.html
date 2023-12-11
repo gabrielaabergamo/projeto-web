@@ -12,7 +12,7 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/projeto-web">Home</a></li>
                     <li>
                         <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
                         <div id="submenu" class="submenu-closed submenu">
@@ -37,10 +37,6 @@
                 <div class="select-wrapper">
                     <p class="label">Linha:</p>
                     <select name="linhas" id="linhas">
-                        <option value="linha1">Linha 1</option>
-                        <option value="linha2">Linha 2</option>
-                        <option value="linha3">Linha 3</option>
-                        <option value="linha4">Linha 4</option>
                     </select>
                 </div>
                 
@@ -81,96 +77,6 @@
             </div>
         </section>
 
-        <script>
-            $(document).ready(function() {
-                let erroPonto1 = document.getElementById('erro-ponto1'),
-                erroPonto2 = document.getElementById('erro-ponto2'),
-                erroPonto3 = document.getElementById('erro-ponto3'),
-                erroPonto4 = document.getElementById('erro-ponto4'),
-                erroPonto5 = document.getElementById('erro-ponto5'),
-                erroPonto6 = document.getElementById('erro-ponto6')
-
-                let letter_only = /[^a-z]/;
-                let textLength = 5;
-
-                const elementsWrapper = [
-                    {
-                        input: 'ponto1',
-                        error: erroPonto1
-                    },
-                    {
-                        input: 'ponto2',
-                        error: erroPonto2
-                    },
-                    {
-                        input: 'ponto3',
-                        error: erroPonto3
-                    },
-                    {
-                        input: 'ponto4',
-                        error: erroPonto4
-                    },
-                    {
-                        input: 'ponto5',
-                        error: erroPonto5
-                    },
-                    {
-                        input: 'ponto6',
-                        error: erroPonto6
-                    }
-                ]
-
-                elementsWrapper.forEach((el) => {
-                    $('#' + el.input).keyup(function() {
-                    let element = $(this);
-                    let replaced;
-
-                        if(letter_only.test(element.val())){
-                            letterOnlyErrMsg(el.error)
-                        } else if(element.val().length < textLength ){
-                            textLengthErrMsg(el.error)
-                        }
-
-                    replaced = element.val().replace(letter_only, '')
-                    element.val(replaced)
-                    })
-                    $('#' + el.input).focusout(function() {
-                        removeErrMsg(el.error)
-                    })
-                })
-                
-                const letterOnlyErrMsg = (erroID) => {
-                    $(erroID).fadeIn('slow', function(){
-                        $(this).html('O input aceita apenas letras.')
-                    })
-                }
-
-                const textLengthErrMsg = (erroID) => {
-                    $(erroID).fadeIn('slow', function(){
-                        $(this).html('O input requer pelo menos 5 letras.')
-                    })
-                }
-
-                const removeErrMsg = (erroID) => {
-                    $(erroID).fadeOut(1000, function() {
-                        $(this).html('')
-                    })
-                }
-            })
-
-
-            var abrirSubmenu = 1;
-                function acaoSubmenu() {
-                    var element = document.getElementById("submenu");
-                    if(abrirSubmenu == 1){
-                        element.classList.remove("submenu-closed");
-                        element.classList.add("submenu-open");
-                    } else {
-                        element.classList.remove("submenu-open");
-                        element.classList.add("submenu-closed");
-                    }
-                    abrirSubmenu = !abrirSubmenu
-                }
-        </script>
+        <script src="../controllers/cadastro.js"></script>
     </body>
 </html>
