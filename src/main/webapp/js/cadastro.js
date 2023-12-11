@@ -26,11 +26,24 @@ $(document).ready(function () {
 
     $('#form').submit(function (event) {
         event.preventDefault();
+        let inputWrappers = document.querySelectorAll('.input-wrapper').length;
 
         $.ajax({
             type: "POST",
             url: "/projeto-web/linhas",
-            data: $(this).serialize(),
+            data: {
+                qtdeDePontos: inputWrappers,
+                ponto1: $("#ponto1").val(),
+                ponto2: $("#ponto2").val(),
+                ponto3: $("#ponto3").val(),
+                ponto4: $("#ponto4").val(),
+                ponto5: $("#ponto5").val(),
+                ponto6: $("#ponto6").val(),
+                ponto7: $("#ponto7").val(),
+                ponto8: $("#ponto8").val(),
+                ponto9: $("#ponto9").val(),
+                ponto10: $("#ponto10").val(),
+            },
             success: function () {
                 showPopup('Operação concluída com sucesso!', 5000);
             },
@@ -130,7 +143,7 @@ function updateErros() {
 function createInputElement(ponto, index) {
     if(index === 0){
         let numDeInputs = document.getElementsByClassName("input-wrapper").length;
-        if(numDeInputs > 10){
+        if(numDeInputs >= 9){
             $(".add-button").hide();
         } else {
             $(".add-button").show();
