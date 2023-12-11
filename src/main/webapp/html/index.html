@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="stylesheet" type="text/css" href="projeto-web/../css/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -31,74 +32,38 @@
         <section class="content">
             <h1>Linhas de ônibus mais usadas</h1>
             <section class="card-wrapper">
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
+               
             </section>
             
         </section>
 
         <script>
+            $(document).ready(function() {
+                $.ajax({
+                    url: "/projeto-web/linhas",
+                    method: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        // Variável para armazenar o HTML dos cards
+                        var cardsHTML = ''
+
+                        // Itera sobre cada objeto na lista e cria um card para cada um
+                        data.forEach(function(onibus) {
+                        cardsHTML += `
+                        <div class="card">
+                            <h2>${onibus.linha}</h2>
+                            <h3>${onibus.terminal}</h3>
+                            <p>Modelo do ônibus: ${onibus.modelo}</p>
+                            <p>Ônibus possui: ${onibus.caracteristicas}</p>
+                        </div>
+                        `;
+                        })
+
+                        $('.card-wrapper').html(cardsHTML)
+                    }
+                })
+            })
+
             var abrirSubmenu = 1;
             function acaoSubmenu() {
                 var element = document.getElementById("submenu");

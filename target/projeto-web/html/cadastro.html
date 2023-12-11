@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="teste">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                        <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
+                        <div id="submenu" class="submenu-closed submenu">
+                            <ul>
+                                <li><a href="/">Itinerários</a></li>
+                                <li><a href="/">Cadastro de itinerários</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/">Horários</a></li>
+                    <li><a href="/">Informações</a></li>
+                    <li><a href="/">Sobre nós</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="content">
+            <h1>Cadastro de itinerário</h1>
+
+            <div class="content-wrapper">
+
+                <div class="select-wrapper">
+                    <p class="label">Linha:</p>
+                    <select name="linhas" id="linhas">
+                        <option value="linha1">Linha 1</option>
+                        <option value="linha2">Linha 2</option>
+                        <option value="linha3">Linha 3</option>
+                        <option value="linha4">Linha 4</option>
+                    </select>
+                </div>
+                
+                <h2>Itinerário:</h2>
+                <form id="form">
+                    <div class="input-wrapper">
+                        <label for="ponto1" class="label">Ponto 1:</label>
+                        <input type="text" id="ponto1" class="input" required minlength="5">
+                    </div>
+                    <div id="erro-ponto1" class="erro"></div>
+                    <div class="input-wrapper">
+                        <label for="ponto2" class="label">Ponto 2:</label>
+                        <input type="text" id="ponto2" class="input" required minlength="5">
+                    </div>
+                    <div id="erro-ponto2" class="erro"></div>
+                    <div class="input-wrapper">
+                        <label for="ponto3" class="label">Ponto 3:</label>
+                        <input type="text" id="ponto3" class="input" required minlength="5">
+                    </div>
+                    <div id="erro-ponto3" class="erro"></div>
+                    <div class="input-wrapper">
+                        <label for="ponto4" class="label">Ponto 4:</label>
+                        <input type="text" id="ponto4" class="input" required minlength="5">
+                    </div>
+                    <div id="erro-ponto4" class="erro"></div>
+                    <div class="input-wrapper">
+                        <label for="ponto5" class="label">Ponto 5:</label>
+                        <input type="text" id="ponto5" class="input" required minlength="5">
+                    </div>
+                    <div id="erro-ponto5" class="erro"></div>
+                    <div class="input-wrapper">
+                        <label for="ponto6" class="label">Ponto 6:</label>
+                        <input type="text" id="ponto6" class="input" required minlength="5">
+                    </div>
+                    <div id="erro-ponto6" class="erro"></div>
+                    <input type="submit" class="botao" value="Salvar alterações">
+                </form>
+            </div>
+        </section>
+
+        <script>
+            $(document).ready(function() {
+                let erroPonto1 = document.getElementById('erro-ponto1'),
+                erroPonto2 = document.getElementById('erro-ponto2'),
+                erroPonto3 = document.getElementById('erro-ponto3'),
+                erroPonto4 = document.getElementById('erro-ponto4'),
+                erroPonto5 = document.getElementById('erro-ponto5'),
+                erroPonto6 = document.getElementById('erro-ponto6')
+
+                let letter_only = /[^a-z]/;
+                let textLength = 5;
+
+                const elementsWrapper = [
+                    {
+                        input: 'ponto1',
+                        error: erroPonto1
+                    },
+                    {
+                        input: 'ponto2',
+                        error: erroPonto2
+                    },
+                    {
+                        input: 'ponto3',
+                        error: erroPonto3
+                    },
+                    {
+                        input: 'ponto4',
+                        error: erroPonto4
+                    },
+                    {
+                        input: 'ponto5',
+                        error: erroPonto5
+                    },
+                    {
+                        input: 'ponto6',
+                        error: erroPonto6
+                    }
+                ]
+
+                elementsWrapper.forEach((el) => {
+                    $('#' + el.input).keyup(function() {
+                    let element = $(this);
+                    let replaced;
+
+                        if(letter_only.test(element.val())){
+                            letterOnlyErrMsg(el.error)
+                        } else if(element.val().length < textLength ){
+                            textLengthErrMsg(el.error)
+                        }
+
+                    replaced = element.val().replace(letter_only, '')
+                    element.val(replaced)
+                    })
+                    $('#' + el.input).focusout(function() {
+                        removeErrMsg(el.error)
+                    })
+                })
+                
+                const letterOnlyErrMsg = (erroID) => {
+                    $(erroID).fadeIn('slow', function(){
+                        $(this).html('O input aceita apenas letras.')
+                    })
+                }
+
+                const textLengthErrMsg = (erroID) => {
+                    $(erroID).fadeIn('slow', function(){
+                        $(this).html('O input requer pelo menos 5 letras.')
+                    })
+                }
+
+                const removeErrMsg = (erroID) => {
+                    $(erroID).fadeOut(1000, function() {
+                        $(this).html('')
+                    })
+                }
+            })
+
+
+            var abrirSubmenu = 1;
+                function acaoSubmenu() {
+                    var element = document.getElementById("submenu");
+                    if(abrirSubmenu == 1){
+                        element.classList.remove("submenu-closed");
+                        element.classList.add("submenu-open");
+                    } else {
+                        element.classList.remove("submenu-open");
+                        element.classList.add("submenu-closed");
+                    }
+                    abrirSubmenu = !abrirSubmenu
+                }
+        </script>
+    </body>
+</html>
