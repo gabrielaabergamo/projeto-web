@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="../css/informacoes.css">
+    </head>
+    <body>
+        <header>
+            <nav class="teste">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                        <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
+                        <div id="submenu" class="submenu-closed submenu">
+                            <ul>
+                                <li><a href="/">Itinerários</a></li>
+                                <li><a href="/cadastro">Cadastro de itinerários</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/">Horários</a></li>
+                    <li><a href="/">Informações</a></li>
+                    <li><a href="/">Sobre nós</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="conteudo">
+            <h1>Informações sobre Linhas de Ônibus</h1>
+
+            <div class="card-container">
+                <div class="card" onclick="showInfo(4)">
+                    <h2>Passo a passo para 1ª via do passe de ônibus</h2>
+                    <p>Descubra o processo detalhado para solicitar a primeira via do passe de ônibus. Este guia fornece informações sobre os documentos necessários, os locais para solicitação e os passos a serem seguidos para obter o seu passe de transporte público.</p>
+                    <p>Data de atualização: 15 de maio de 2023</p>
+                </div>
+                <div class="card" onclick="showInfo(3)">
+                    <h2>Locais para efetuar a recarga do passe</h2>
+                    <p>Encontre os locais convenientes para recarregar o seu passe de ônibus. Desde pontos de venda físicos até opções online, este guia lista e descreve os diferentes lugares onde você pode recarregar seu passe para garantir uma viagem tranquila pela cidade.</p>
+                    <p>Data de atualização: 8 de abril de 2023</p>
+                </div>
+                <div class="card" onclick="showInfo(2)">
+                    <h2>Atualizações nas linhas de ônibus</h2>
+                    <p>Mantenha-se informado sobre as mais recentes atualizações e mudanças nas linhas de ônibus da nossa cidade. Descubra sobre novos itinerários, horários atualizados, mudanças nas paradas e todas as notícias relevantes que podem afetar sua viagem diária.</p>
+                    <p>Data de atualização: 25 de fevereiro de 2023</p>
+                </div>
+                <div class="card" onclick="showInfo(1)">
+                    <h2>Como realizar o pedido de 2ª via do passe de ônibus ?</h2>
+                    <p>Você perdeu seu passe de ônibus? Saiba como solicitar a segunda via de forma rápida e fácil. Desde os documentos necessários até os procedimentos a serem seguidos, este guia abrange tudo o que você precisa para obter uma nova via do seu passe de transporte público.</p>
+                    <p>Data de atualização: 12 de janeiro de 2023</p>
+                </div>
+
+
+
+            </div>
+            <!-- Modal -->
+            <div class="modal-bg" id="modalBg"></div>
+
+            
+            <div id="myModal-4" class="modal">
+                <span class="close-modal" onclick="closeModal(4)">&times;</span>
+                <h2>Passo a passo para 1ª via do passe de ônibus</h2>
+                <h3>Documentos necessários:</h3>
+                <ol>
+                    <li>Documentação de Identificação: Apresente um documento oficial com foto, como RG, CNH ou Passaporte.</li>
+                    <li>Comprovante de Residência: Leve consigo um comprovante recente de residência, como contas de água, luz ou telefone.</li>
+                    <li>Formulário de Solicitação: Preencha o formulário específico para solicitação do passe de ônibus, disponível nos postos de atendimento.</li>
+                </ol>
+
+                <h3>Valores:</h3>
+                <ol>
+                    <li>Passe Regular: O valor do passe de ônibus regular é de R$4,70, válido por 30 dias.</li>
+                    <li>Passe Estudantil: Estudantes têm direito a descontos especiais. O valor do passe estudantil é de R$2,40, válido por 30 dias.</li>
+                    <li>Taxa de Emissão: Há uma taxa única de emissão no valor de R$15,90 para ambos os tipos de passes.</li>
+                </ol>
+
+                <h3>Locais de atendimento:</h3>
+                <ol>
+                    <li>Postos Físicos: Os postos físicos de atendimento estão localizados nos principais terminais de ônibus da cidade, abertos de segunda a sexta-feira, das 8h às 17h.</li>
+                    <li>Atendimento Online: O serviço de solicitação também está disponível online, através do site oficial da empresa de ônibus, com atendimento 24 horas.</li>
+                </ol>
+
+                <h3>Processo para passe de estudante:</h3>
+                <ol>
+                    <li>Matrícula Ativa: Estudantes devem apresentar um comprovante de matrícula ativa em instituição de ensino reconhecida.</li>
+                    <li>Requisição Escolar: Para menores de idade, é necessário que o responsável legal solicite o passe de estudante.</li>
+                    <li>Validação e Emissão: Após a confirmação da documentação, o passe de estudante é validado e emitido nos postos de atendimento ou através do site.</li>
+                </ol>
+            </div>
+
+            <div id="myModal-3" class="modal">
+                <span class="close-modal" onclick="closeModal(3)">&times;</span>
+                <h2>Locais para efetuar a recarga do passe</h2>
+                <p>Encontre os locais convenientes para recarregar o seu passe de ônibus. Desde pontos de venda físicos até opções online, este guia lista e descreve os diferentes lugares onde você pode recarregar seu passe para garantir uma viagem tranquila pela cidade.</p>
+        
+                <h3>Locais Disponíveis:</h3>
+                <ol>
+                    <li><strong>Loja Central de Ônibus:</strong> Av. Principal 123, Sorocaba-SP - De segunda a sexta, das 8h às 18h.</li>
+                    <li><strong>Pontos nas estações:</strong> Terminal São Paulo, Central, Groelandia e Magazine - Todos os dias, das 6h às 22h.</li>
+                    <li><strong>Recarga Online:</strong> Através do site oficial da empresa de ônibus, disponível 24 horas.</li>
+                </ol>
+            </div>
+
+            <div id="myModal-2" class="modal">
+                <span class="close-modal" onclick="closeModal(2)">&times;</span>
+                <h2>Atualizações nas linhas de ônibus</h2>
+                <p>Mantenha-se informado sobre as mais recentes atualizações e mudanças nas linhas de ônibus da nossa cidade. Descubra sobre novos itinerários, horários atualizados, mudanças nas paradas e todas as notícias relevantes que podem afetar sua viagem diária.</p>
+        
+                <h3>Últimas Atualizações:</h3>
+                <ol>
+                    <li><strong>Novo ponto de ônibus na Avenida General:</strong> Foi inaugurado um novo ponto de ônibus na Avenida General para facilitar o embarque e desembarque dos passageiros. Localização: Avenida General, próximo ao número 456.</li>
+                    <li><strong>Alteração de horário na linha 80 - UFSCar:</strong> O horário de saída do ônibus da linha 80 foi ajustado de 13:00 para 12:40, visando melhorar a pontualidade do serviço. Verifique o novo horário em sua parada.</li>
+                </ol>
+            </div>
+
+            <div id="myModal-1" class="modal">
+                <span class="close-modal" onclick="closeModal(1)">&times;</span>
+                <h2>Como realizar o pedido de 2ª via do passe de ônibus?</h2>
+                <p>Você perdeu seu passe de ônibus? Saiba como solicitar a segunda via de forma rápida e fácil. Desde os documentos necessários até os procedimentos a serem seguidos, este guia abrange tudo o que você precisa para obter uma nova via do seu passe de transporte público.</p>
+        
+                <h3>Passo a passo:</h3>
+                <ol>
+                    <li><strong>Documentos necessários:</strong> RG ou documento com foto e comprovante de residência.</li>
+                    <li><strong>Valores:</strong> O custo para a segunda via é de R$ 20,00.</li>
+                    <li><strong>Locais para solicitação:</strong> Dirija-se ao balcão de atendimento ao cliente no terminal central.</li>
+                    <li><strong>Processo de solicitação:</strong> Preencha o formulário de solicitação, apresente os documentos necessários e efetue o pagamento.</li>
+                </ol>
+            </div>
+
+        </section>
+    </body>
+
+
+    <script>
+        function showInfo(cardId) {
+            // Transforma o cardId em string
+            var myString = cardId.toString();
+
+            // Concatena o prefixo 'myModal-' com o número do cardId convertido para string
+            var modalId = 'myModal-' + myString;
+            
+            // Seleciona o modal e o fundo do modal pelo ID
+            const modal = document.getElementById(modalId);
+            const modalBg = document.getElementById('modalBg');
+
+            // Verifica se o modal existe antes de tentar exibir
+            if (modal) {
+                modal.style.display = 'block';
+                modalBg.style.display = 'block';
+            }
+        }
+        function closeModal(cardId) {
+            // Transforma o cardId em string
+            var myString = cardId.toString();
+
+            // Concatena o prefixo 'myModal-' com o número do cardId convertido para string
+            var modalId = 'myModal-' + myString;
+            
+            // Seleciona o modal e o fundo do modal pelo ID
+            const modal = document.getElementById(modalId);
+            const modalBg = document.getElementById('modalBg');
+
+          
+            modal.style.display = 'none';
+            modalBg.style.display = 'none';
+            
+        }
+    </script>
+</body>
+</html>

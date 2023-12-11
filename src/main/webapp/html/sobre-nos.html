@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="../css/sobre-nos.css">
+    </head>
+    <body>
+        <header>
+            <nav class="teste">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                        <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
+                        <div id="submenu" class="submenu-closed submenu">
+                            <ul>
+                                <li><a href="/">Itinerários</a></li>
+                                <li><a href="/cadastro">Cadastro de itinerários</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/">Horários</a></li>
+                    <li><a href="/">Informações</a></li>
+                    <li><a href="/">Sobre nós</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="conteudo">
+            <h1>Conheça mais sobre nossa empresa</h1>
+
+            <img src="../img/banner.webp" alt="Empresa de Ônibus" class="imagem-inicial">
+
+            <div class="texto-institucional">
+                <h2>Fundação e História</h2>
+                <p>Nossa empresa foi fundada em 1814 com o objetivo de oferecer um serviço de transporte público de qualidade para a comunidade. Desde então, tem sido um dos principais operadores de transporte na região, proporcionando um serviço confiável e seguro para milhares de passageiros diariamente.</p>
+                <h2>Evolução ao Longo do Tempo</h2>
+                <p>Ao longo dos anos, temos passado por uma notável evolução. Iniciando suas atividades com uma pequena frota, expandiu significativamente sua infraestrutura e alcance. Atualmente, operamos uma extensa rede de linhas que abrange toda a cidade, conectando bairros, instituições e pontos-chave para garantir a mobilidade urbana de nossos passageiros.</p>
+                <h2>Missão</h2>
+                <p>Nossa missão é fornecer um serviço de transporte de excelência, seguro e acessível para todos os cidadãos. Comprometemo-nos em oferecer uma experiência de viagem confortável e confiável, contribuindo para a integração e desenvolvimento sustentável das comunidades em que operamos.</p>
+                <h2>Visão</h2>
+                <p>Vislumbramos ser referência no setor de transporte, continuando a inovar, expandir e aprimorar nossos serviços para atender às necessidades em constante evolução de nossa comunidade. Buscamos ser reconhecidos como um agente de mudança positiva, contribuindo para uma cidade mais conectada, acessível e sustentável.</p>
+                <h2>Valores</h2>
+                <ul>
+                    <li><strong>Compromisso com a Qualidade:</strong> Buscamos a excelência em cada aspecto do nosso serviço, desde a segurança até a cortesia no atendimento aos passageiros.</li>
+                    <li><strong>Respeito e Responsabilidade:</strong> Valorizamos a integridade, ética e respeito, tanto com nossos colaboradores quanto com a comunidade.</li>
+                    <li><strong>Inovação e Melhoria Contínua:</strong> Estamos sempre buscando novas formas de melhorar nossos serviços, adotando tecnologias modernas e práticas sustentáveis.</li>
+                    <li><strong>Foco no Cliente:</strong> Nosso objetivo principal é atender às necessidades e expectativas dos nossos passageiros, oferecendo uma experiência de viagem excepcional.</li>
+                </ul>
+                <h2>Compromisso Ambiental</h2>
+                <p>Como empresa consciente, nos comprometemos a reduzir nosso impacto ambiental. Investimos em tecnologias mais limpas, gestão de resíduos e práticas sustentáveis para contribuir com um meio ambiente mais saudável.</p>
+            </div>
+        </section>
+    </body>
+
+
+    <script>
+        function showInfo(cardId) {
+            // Transforma o cardId em string
+            var myString = cardId.toString();
+
+            // Concatena o prefixo 'myModal-' com o número do cardId convertido para string
+            var modalId = 'myModal-' + myString;
+            
+            // Seleciona o modal e o fundo do modal pelo ID
+            const modal = document.getElementById(modalId);
+            const modalBg = document.getElementById('modalBg');
+
+            // Verifica se o modal existe antes de tentar exibir
+            if (modal) {
+                modal.style.display = 'block';
+                modalBg.style.display = 'block';
+            }
+        }
+        function closeModal(cardId) {
+            // Transforma o cardId em string
+            var myString = cardId.toString();
+
+            // Concatena o prefixo 'myModal-' com o número do cardId convertido para string
+            var modalId = 'myModal-' + myString;
+            
+            // Seleciona o modal e o fundo do modal pelo ID
+            const modal = document.getElementById(modalId);
+            const modalBg = document.getElementById('modalBg');
+
+          
+            modal.style.display = 'none';
+            modalBg.style.display = 'none';
+            
+        }
+    </script>
+</body>
+</html>
