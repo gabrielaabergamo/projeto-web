@@ -42,37 +42,8 @@
                 
                 <h2>Itinerário:</h2>
                 <form id="form">
-                    <div class="input-wrapper">
-                        <label for="ponto1" class="label">Ponto 1:</label>
-                        <input type="text" id="ponto1" class="input" required minlength="5">
-                    </div>
-                    <div id="erro-ponto1" class="erro"></div>
-                    <div class="input-wrapper">
-                        <label for="ponto2" class="label">Ponto 2:</label>
-                        <input type="text" id="ponto2" class="input" required minlength="5">
-                    </div>
-                    <div id="erro-ponto2" class="erro"></div>
-                    <div class="input-wrapper">
-                        <label for="ponto3" class="label">Ponto 3:</label>
-                        <input type="text" id="ponto3" class="input" required minlength="5">
-                    </div>
-                    <div id="erro-ponto3" class="erro"></div>
-                    <div class="input-wrapper">
-                        <label for="ponto4" class="label">Ponto 4:</label>
-                        <input type="text" id="ponto4" class="input" required minlength="5">
-                    </div>
-                    <div id="erro-ponto4" class="erro"></div>
-                    <div class="input-wrapper">
-                        <label for="ponto5" class="label">Ponto 5:</label>
-                        <input type="text" id="ponto5" class="input" required minlength="5">
-                    </div>
-                    <div id="erro-ponto5" class="erro"></div>
-                    <div class="input-wrapper">
-                        <label for="ponto6" class="label">Ponto 6:</label>
-                        <input type="text" id="ponto6" class="input" required minlength="5">
-                    </div>
-                    <div id="erro-ponto6" class="erro"></div>
-                    <input type="submit" class="botao" value="Salvar alterações">
+                    <button type="button" id="add-button" class="add-button botao" onclick="createInputElement('', 0)">+</button>
+                    <input type="submit" id="submit-button" class="botao" value="Salvar alterações">
                 </form>
             </div>
         </section>
