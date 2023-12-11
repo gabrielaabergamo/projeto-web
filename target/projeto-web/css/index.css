@@ -3,6 +3,7 @@ body {
     display: block;
 }
 
+/* header */
 header {
     background-color: #E6FEE6;
     padding: 35px 0;
@@ -22,6 +23,10 @@ nav ul {
 nav ul li{
     display: inline;
     font-size: 15px;
+}
+
+nav ul li:first-child{
+   text-decoration: underline;
 }
 
 nav ul li:not(:last-child){
@@ -56,7 +61,7 @@ nav a:hover, button:hover{
     border-radius: 10px;
     min-width: 200px;
     padding: 20px;
-    opacity: 60%;
+    opacity: 70%;
 }
 
 .submenu-closed{
@@ -71,6 +76,12 @@ nav a:hover, button:hover{
     display: flex;
 }
 
+#submenu ul li:not(:first-child) {
+    margin-top: 20px;
+}
+ /* fim header */
+
+ /* cards */
 .content {
     margin: 30px auto;
     max-width: 1300px;
@@ -86,6 +97,13 @@ nav a:hover, button:hover{
     border-radius: 20px;
     max-width: 350px;
     padding: 20px;
+    transition: 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    box-shadow: 10px 10px 60px #d0d0d0, -10px -10px 60px #ffffff;
 }
 
 .card h2 {

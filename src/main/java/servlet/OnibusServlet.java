@@ -17,23 +17,34 @@ import service.OnibusService;
 
 @WebServlet("/linhas")
 public class OnibusServlet extends HttpServlet {
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         OnibusService onibusService = new OnibusService();
-         List<OnibusBean> listaOnibus = onibusService.listarOnibus();
+        List<OnibusBean> listaOnibus = onibusService.listarOnibus();
         Gson gson = new Gson();
         String jsonListaOnibus = gson.toJson(listaOnibus);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-    
-    
+
         PrintWriter out = response.getWriter();
         out.print(jsonListaOnibus);
         out.flush();
-	}
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String qtdeDePontos = request.getParameter("qtdeDePontos");
+
+        for (int i = 1; i <= Integer.valueOf(qtdeDePontos); i++) {
+            String p = request.getParameter("ponto"+i);
+
+            if(p.length() < 5) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Tamanho deve ser pelo menos 5!");
+            }
+            
+        }
+    }
 }

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-        <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+        <link rel="stylesheet" type="text/css" href="../css/itinerario.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
     <body>
@@ -17,8 +17,8 @@
                         <button id="rotas" onclick="acaoSubmenu()">Rotas</button>
                         <div id="submenu" class="submenu-closed submenu">
                             <ul>
-                                <li><a href="/projeto-web/html/itinerario.html">Itinerários</a></li>
-                                <li><a href="/">Cadastro de itinerários</a></li>
+                                <li><a href="/">Itinerários</a></li>
+                                <li><a href="/projeto-web/html/cadastro.html">Cadastro de itinerários</a></li>
                             </ul>
                         </div>
                     </li>
@@ -30,27 +30,36 @@
         </header>
 
         <section class="content">
-            <div id="popup">
-                <p id="popupMessage"></p>
-            </div>
-            <h1>Cadastro de itinerário</h1>
+            <h1>Itinerários</h1>
 
             <div class="content-wrapper">
 
                 <div class="select-wrapper">
-                    <p class="label">Linha:</p>
-                    <select name="linhas" id="linhas">
+                    <p class="label">Região:</p>
+                    <select name="regioes" id="regioes">
+                    </select>
+                </div>
+
+                <div class="select-wrapper">
+                    <p class="label">Ônibus:</p>
+                    <select name="onibus" id="onibus">
+                        <!-- <option value="onibus1">Ônibus 1</option>
+                        <option value="onibus2">Ônibus 2</option>
+                        <option value="onibus3">Ônibus 3</option>
+                        <option value="onibus4">Ônibus 4</option> -->
                     </select>
                 </div>
                 
-                <h2>Itinerário:</h2>
-                <form id="form">
-                    <button type="button" id="add-button" class="add-button botao" onclick="createInputElement('', 0)">+</button>
-                    <input type="submit" id="submit-button" class="botao" value="Salvar alterações">
-                </form>
+                <ul class="lista-onibus" id="pontos">
+                   <!-- <li>Ponto 1</li> 
+                   <li>Ponto 2</li> 
+                   <li>Ponto 3</li> 
+                   <li>Ponto 4</li>  -->
+                </ul>
+
             </div>
         </section>
 
-        <script src="../controllers/cadastro.js"></script>
+        <script src="../controllers/itinerario.js"></script>
     </body>
 </html>

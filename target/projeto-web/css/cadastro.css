@@ -78,37 +78,69 @@ nav a:hover, button:hover{
 }
  /* fim header */
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
+ .content {
+    margin: 30px auto;
+    max-width: 1300px;
 }
 
-h1 {
-    margin-bottom: 30px;
+.content h1 {
+    color: #032A00;
+    font-family: 'Raleway';
 }
 
-.card-container {
+.content-wrapper{
+    padding-left: 20px;
+}
+
+.select-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
+    width: 300px;
+    gap: 30px;
 }
 
-.card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
+.label {
+    font-family: 'Raleway';
+}
+
+#linhas {
+    width: 100%;
+    height: 40px;
+}
+
+.content h2 {
+    font-family: 'Raleway';
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.input{
+    width: 60%;
+    height: 35px;
+    padding: 0 10px;
+}
+
+.botao{
+    width: 200px;
+    background-color: #214221;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 25px;
+}
+
+.botao:hover{
     cursor: pointer;
-    width: 250px;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: scale(1.05);
 }
 
 .erro{
