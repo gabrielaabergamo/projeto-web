@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    display: block;
+}
+
+/* header */
+header {
+    background-color: #E6FEE6;
+    padding: 35px 0;
+    border-radius: 20px;
+    margin: 15px auto;
+    max-width: 1400px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li{
+    display: inline;
+    font-size: 15px;
+}
+
+nav ul li:first-child{
+   text-decoration: underline;
+}
+
+nav ul li:not(:last-child){
+    margin-right: 70px;
+}
+
+nav a, button{
+    font-family: 'Inter';
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+nav button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    font-size: 15px;
+}
+
+nav a:hover, button:hover{
+    opacity: 70%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.submenu{
+    position: absolute;
+    margin-top: 40px;
+    background-color: #E6FEE6;
+    border-radius: 10px;
+    min-width: 200px;
+    padding: 20px;
+    opacity: 70%;
+}
+
+.submenu-closed{
+    display: none;
+}
+
+.submenu-open {
+    display: block;
+}
+
+#submenu ul li {
+    display: flex;
+}
+
+#submenu ul li:not(:first-child) {
+    margin-top: 20px;
+}
+ /* fim header */
+
+ /* cards */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: left;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.conteudo{
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	height:auto;
+	position: relative;
+	margin:50px auto;
+	font-size:13px;
+}
+
+.card {
+    border: 1px solid #E2E2E2;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    transition: 0.5s;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    box-shadow: 10px 10px 60px #d0d0d0, -10px -10px 60px #ffffff;
+    cursor: pointer;
+}
+
+.card h2 {
+    font-family: 'Raleway';
+    margin: 0;
+}
+
+.card h3 {
+    font-family: 'Roboto';
+    color: #6E6E6E;
+    margin-top: 0;
+}
+
+.card p {
+    font-family: 'Roboto';
+}
+
+.card-wrapper {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente */
+    z-index: 9998; /* Z-index abaixo do modal */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: 80%;
+    max-height: 600px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+/* Estilos para o botão de fechar o modal */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+
+}
