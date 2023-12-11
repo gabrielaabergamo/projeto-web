@@ -38,11 +38,16 @@ $(document).ready(function () {
         });
     });
 
+    $('#linhas').on('change', function () {
+        let pontos = $(this).find(':selected').data('pontos');
+        updatePontos(pontos);
+    });
+
 });
 
 function updateSelect(options) {
     const linhasSelect = document.getElementById('linhas');
-    options.forEach(function (linha) {
+    options.forEach(linha => {
         const option = document.createElement('option');
         option.value = linha.value;
         option.text = linha.label;
@@ -119,13 +124,6 @@ function updateErros() {
         })
     }
 }
-
-$(document).ready(function () {
-    $('#linhas').on('change', function () {
-        let pontos = $(this).find(':selected').data('pontos');
-        updatePontos(pontos);
-    });
-});
 
 function createInputElement(ponto, index) {
     if(index === 0){
