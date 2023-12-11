@@ -6,10 +6,11 @@
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="projeto-web/../css/index.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
     <body>
         <header>
-            <nav>
+            <nav class="teste">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li>
@@ -17,7 +18,7 @@
                         <div id="submenu" class="submenu-closed submenu">
                             <ul>
                                 <li><a href="/">Itinerários</a></li>
-                                <li><a href="/">Cadastro de itinerários</a></li>
+                                <li><a href="/cadastro">Cadastro de itinerários</a></li>
                             </ul>
                         </div>
                     </li>
@@ -31,69 +32,7 @@
         <section class="content">
             <h1>Linhas de ônibus mais usadas</h1>
             <section class="card-wrapper">
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
-                <div class="card">
-                    <h2>Linha X</h2>
-                    <h3>Terminal Y</h3>
-                    <p>Modelo do ônibus: modelo abc</p>
-                    <p>Ônibus possui: ar-condicionado, 4 assentos 
-                        preferenciais, ???</p>
-                </div>
+                
             </section>
             
         </section>
@@ -111,6 +50,40 @@
                 }
                 abrirSubmenu = !abrirSubmenu
             }
+          
+
+  $(document).ready(function() {
+    // Faz uma requisição AJAX para a URL /linhas
+    $.ajax({
+      url: "/projeto-web/linhas",
+      method: "GET",
+      dataType: "json",
+      success: function(data) {
+        // Variável para armazenar o HTML dos cards
+        var cardsHTML = "";
+
+        // Itera sobre cada objeto na lista e cria um card para cada um
+        data.forEach(function(onibus) {
+
+          var cardHTML = '<div class="card">';
+          cardHTML += '<h2>Linha ' + onibus.linha + '</h2>';
+          cardHTML += '<h2> Terminal' + onibus.terminal + '</h2>';
+          cardHTML += '<p>Modelo do ônibus: ' + onibus.modelo + '</p>';
+          cardHTML += '<p>Ônibus possui: ' + onibus.caracteristicas + '</p>';
+          cardHTML += '</div>';
+
+          cardsHTML += cardHTML;
+        });
+
+        // Adiciona os cards ao elemento com o ID "cards-container"
+        $('.card-wrapper').html(cardsHTML);
+      },
+      error: function(error) {
+        console.error("Erro na requisição AJAX:", error);
+      }
+    });
+  });
+
         </script>
     </body>
 </html>
