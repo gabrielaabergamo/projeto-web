@@ -116,9 +116,21 @@ nav a:hover, button:hover{
 
 .lista-onibus {
     padding-left: 10px;
+    padding-right: 10px;
     font-family: 'Roboto';
 }
 
 .lista-onibus li {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    background-color:#E6FEE6;  
+    padding: 10px; 
+    list-style-type: none;
+    width: 300px;
+}
+
+.ponto {
+    font-family: 'Raleway';
+    border-radius: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #aaa;
 }

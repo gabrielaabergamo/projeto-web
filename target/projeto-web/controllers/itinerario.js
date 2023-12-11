@@ -52,7 +52,6 @@ $(document).ready(function () {
             });
 
             updateSelect(linhas);
-            updatePontos(linhas[0].pontos.join(', '));
 
         }
     });
@@ -93,9 +92,12 @@ function updateSelect(options) {
         option.classList.add('onibus_option');
         option.value = 0;
         option.text = "Nenhuma Linha Encontrada";
-        option.dataset.pontos = "";
+        option.dataset.pontos = "Nenhuma Linha Selecionada";
         onibusSelect.appendChild(option);
     }
+
+    onibus_options = document.querySelectorAll('.onibus_option');
+    updatePontos(onibus_options[0].dataset.pontos);
 }
 
 function updatePontos(pontos) {

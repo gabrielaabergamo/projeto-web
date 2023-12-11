@@ -32,8 +32,10 @@ $(document).ready(function () {
             url: "/projeto-web/linhas",
             data: $(this).serialize(),
             success: function () {
+                showPopup('Operação concluída com sucesso!', 5000);
             },
             error: function () {
+                showPopup('Erro no cadastro!', 5000);
             }
         });
     });
@@ -166,6 +168,22 @@ function createInputElement(ponto, index) {
     form.insertBefore(inputWrapper, button);
     form.insertBefore(erro, button);
     updateErros();
+}
+
+function showPopup(message, duration) {
+    var popup = document.getElementById('popup');
+    var popupMessage = document.getElementById('popupMessage');
+
+    popupMessage.textContent = message;
+
+    popup.style.display = 'block';
+    setTimeout(function () {
+        popup.style.opacity = '1';
+    }, 10); 
+
+    setTimeout(function () {
+        popup.style.opacity = '0';
+    }, duration);
 }
 
 var abrirSubmenu = 1;
