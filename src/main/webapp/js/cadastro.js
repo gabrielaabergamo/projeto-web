@@ -100,7 +100,7 @@ function updateErros() {
         }
     }
 
-    let pattern = /[^a-zA-Z0-9\s]/;
+    let pattern = /[^a-zA-Z0-9.\s]/;
     let textLength = 5;
     elementsWrapper.forEach((el) => {
         $('#' + el.input).keyup(function () {
@@ -123,7 +123,7 @@ function updateErros() {
 
     const letterOnlyErrMsg = (erroID) => {
         $(erroID).fadeIn('slow', function () {
-            $(this).html('O input aceita apenas letras.')
+            $(this).html('O input aceita apenas letras, números e ponto.')
         })
     }
 

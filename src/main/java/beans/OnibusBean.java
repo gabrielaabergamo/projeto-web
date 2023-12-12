@@ -102,7 +102,7 @@ public class OnibusBean {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, modelo, linha, terminal, caracteristicas);
+         return Objects.hash(id, modelo, linha, terminal, caracteristicas);
     }
 
 

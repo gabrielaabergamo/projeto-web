@@ -8,15 +8,18 @@ $(document).ready(function() {
             var cardsHTML = ''
 
             // Itera sobre cada objeto na lista e cria um card para cada um
-            data.forEach(function(onibus) {
-            cardsHTML += `
-            <div class="card">
-                <h2>${onibus.linha}</h2>
-                <h3>${onibus.terminal}</h3>
-                <p>Modelo do ônibus: ${onibus.modelo}</p>
-                <p>Ônibus possui: ${onibus.caracteristicas}</p>
-            </div>
-            `;
+            data.forEach((onibus, index) =>{
+
+                if(index < 8){
+                    cardsHTML += `
+                    <div class="card">
+                        <h2>${onibus.linha}</h2>
+                        <h3>${onibus.terminal}</h3>
+                        <p>Modelo do ônibus: ${onibus.modelo}</p>
+                        <p>Ônibus possui: ${onibus.caracteristicas}</p>
+                    </div>
+                    `;
+                }
             })
 
             $('.card-wrapper').html(cardsHTML)

@@ -29,6 +29,10 @@ nav ul li:not(:last-child){
     margin-right: 70px;
 }
 
+.page {
+    text-decoration: underline;
+}
+
 nav a, button{
     font-family: 'Inter';
     text-transform: uppercase;
@@ -58,7 +62,7 @@ nav a:hover, button:hover{
     border-radius: 10px;
     min-width: 200px;
     padding: 20px;
-    opacity: 70%;
+     
 }
 
 .submenu-closed{
@@ -67,6 +71,7 @@ nav a:hover, button:hover{
 
 .submenu-open {
     display: block;
+    z-index: 1000;
 }
 
 #submenu ul li {

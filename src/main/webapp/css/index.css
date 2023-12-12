@@ -20,20 +20,21 @@ nav ul {
     padding: 0;
 }
 
-nav ul li{
+nav ul li {
     display: inline;
     font-size: 15px;
 }
 
-nav ul li:first-child{
-   text-decoration: underline;
+.page {
+    text-decoration: underline;
 }
 
-nav ul li:not(:last-child){
+nav ul li:not(:last-child) {
     margin-right: 70px;
 }
 
-nav a, button{
+nav a,
+button {
     font-family: 'Inter';
     text-transform: uppercase;
     text-decoration: none;
@@ -48,28 +49,30 @@ nav button {
     font-size: 15px;
 }
 
-nav a:hover, button:hover{
+nav a:hover,
+button:hover {
     opacity: 70%;
     cursor: pointer;
     transition: 0.5s;
 }
 
-.submenu{
+.submenu {
     position: absolute;
     margin-top: 40px;
     background-color: #E6FEE6;
     border-radius: 10px;
     min-width: 200px;
     padding: 20px;
-    opacity: 70%;
+
 }
 
-.submenu-closed{
+.submenu-closed {
     display: none;
 }
 
 .submenu-open {
     display: block;
+    z-index: 1000;
 }
 
 #submenu ul li {
@@ -79,7 +82,8 @@ nav a:hover, button:hover{
 #submenu ul li:not(:first-child) {
     margin-top: 20px;
 }
- /* fim header */
+
+/* fim header */
 
  /* cards */
 .content {

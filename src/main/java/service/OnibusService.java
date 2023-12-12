@@ -11,7 +11,7 @@ public class OnibusService {
 
 
     public List<OnibusBean> listarOnibus(){
-        List<OnibusBean> onibus = new ArrayList<OnibusBean>();
+        List<OnibusBean> onibus  = new ArrayList<OnibusBean>();
         OnibusBean linha1 = new OnibusBean(1L, "Millenium IV - piso baixo", "Linha 80 - UFSCar", "Terminal São Paulo", "Ar-condicionado, 8 assentos preferenciais, elevador, tomadas USB", "Oeste", Arrays.asList("R. LEOPOLDO MACHADO", "R. SANTA CRUZ", "R. MAJOR JOÃO LÍCIO", "AV. JUSCELINO K. DE OLIVEIRA"));
         OnibusBean linha2 = new OnibusBean(2L, "Millenium BRT - articulado", "Linha T30 - Brigadeiro Tobias", "Terminal São Paulo", "Ar-condicionado, 16 assentos preferenciais, elevador, tomadas USB, piso alto", "Norte", Arrays.asList("R. LEOPOLDO MACHADO", "AV. SÃO PAULO", "ROD. RAPOSO TAVARES", "MARGINAL (ROD. CELSO CHARURI)","AV. BANDEIRANTES"));
         OnibusBean linha3 = new OnibusBean(3L, "Apache VIP - piso simples", "Linha 100 - Expresso", "Terminal Santo Antônio/Terminal São Paulo", "Ar-condicionado, 8 assentos preferenciais, elevador, tomadas USB", "Oeste", Arrays.asList("AV. AFONSO VERGUEIRO", "R. SOUZA PEREIRA"));

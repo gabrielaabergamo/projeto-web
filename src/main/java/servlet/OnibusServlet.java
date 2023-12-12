@@ -41,7 +41,7 @@ public class OnibusServlet extends HttpServlet {
         for (int i = 1; i <= Integer.valueOf(qtdeDePontos); i++) {
             String p = request.getParameter("ponto"+i);
 
-            if(p.length() < 5) {
+            if(p.length() <  5) {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Tamanho deve ser pelo menos 5!");
             }
             
